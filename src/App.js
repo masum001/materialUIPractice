@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { makeStyles } from '@material-ui/core/styles';
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Header from './components/Header';
+import PageHeader from './components/PageHeader';
+const { default: SideMenu } = require("./components/SideMenu");
 
+
+const useStyles = makeStyles(()=>({
+  appStyles : {
+    paddingLeft : 300,
+    width : "100%"
+  }
+}))
 function App() {
+  const classes = useStyles()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <>
+      
+      <SideMenu/>
+      <div className={classes.appStyles}>
+        <Header />
+        <PageHeader />
+      </div>
+      <CssBaseline/>
+  </>
   );
 }
 
